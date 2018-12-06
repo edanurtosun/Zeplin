@@ -1,0 +1,242 @@
+main
+
+package AnaSayfa;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+	public static void main(final String[] args) throws IOException {
+
+		final File file = new File("Komsuluklar.txt");
+		BufferedReader reader = null;
+		reader = new BufferedReader(new FileReader(file));
+		String satir = reader.readLine();
+
+		while (satir != null) {
+			System.out.println(satir);
+			satir = reader.readLine();
+		}
+
+	}
+
+}
+
+giris
+
+package AnaSayfa;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class Giris extends JFrame {
+
+	private final JPanel contentPane;
+	private final JTextField txtkisi;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(final String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					// UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+					final Giris frame = new Giris();
+					frame.setVisible(true);
+				} catch (final Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Giris() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 999, 551);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		final JLabel lblGezginZeplinProjesi = new JLabel("Gezgin Zeplin Projesi");
+		lblGezginZeplinProjesi.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		lblGezginZeplinProjesi.setBounds(318, 13, 537, 42);
+		contentPane.add(lblGezginZeplinProjesi);
+
+		final JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MERVE\\Desktop\\Prolab\\turkiye-haritasi.gif"));
+		lblNewLabel.setBounds(159, 68, 655, 339);
+		contentPane.add(lblNewLabel);
+
+		final JComboBox cmbshr = new JComboBox();
+		cmbshr.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+		cmbshr.setModel(new DefaultComboBoxModel(new String[] { "", "01 Adana", "02 Ad\u0131yaman", "03 Afyon",
+				"04 A\u011Fr\u0131", "05 Amasya", "06 Ankara", "07 Antalya", "08 Artvin", "09 Ayd\u0131n",
+				"10 Bal\u0131kesir", "11 Bilecik", "12 Bing\u00F6l", "13 Bitlis", "14 Bolu", "15 Burdur", "16 Bursa",
+				"17 \u00C7anakkale", "18 \u00C7ank\u0131r\u0131", "19 \u00C7orum", "20 Denizli", "21 Diyarbak\u0131r",
+				"22 Edirne", "23 Elaz\u0131\u011F", "24 Erzincan", "25 Erzurum", "26 Eski\u015Fehir", "27 Gaziantep",
+				"28 Giresun", "29 G\u00FCm\u00FC\u015Fhane", "30 Hakkari", "31 Hatay", "32 Isparta",
+				"33 \u0130\u00E7el", "34 \u0130stanbul", "35 \u0130zmir", "36 Kars", "37 Kastamonu", "38 Kayseri",
+				"39 K\u0131rklareli", "40 K\u0131r\u015Fehir", "41 Kocaeli", "42 Konya", "43 K\u00FCtahya",
+				"44 Malatya", "45 Manisa", "46 K.mara\u015F", "47 Mardin", "48 Mu\u011Fla", "49 Mu\u015F",
+				"50 Nev\u015Fehir", "51 Ni\u011Fde", "52 Ordu", "53 Rize", "54 Sakarya", "55 Samsun", "56 Siirt",
+				"57 Sinop", "58 Sivas", "59 Tekirda\u011F", "60 Tokat", "61 Trabzon", "62 Tunceli",
+				"63 \u015Eanl\u0131urfa", "64 U\u015Fak", "65 Van", "66 Yozgat", "67 Zonguldak", "68 Aksaray",
+				"69 Bayburt", "70 Karaman", "71 K\u0131r\u0131kkale", "72  Batman", "73 \u015E\u0131rnak",
+				"74 Bart\u0131n", "75 Ardahan", "76 I\u011Fd\u0131r", "77 Yalova", "78 Karab\u00FCk", "79 Kilis",
+				"80 Osmaniye", "81 D\u00FCzce" }));
+		cmbshr.setBounds(26, 108, 104, 22);
+		contentPane.add(cmbshr);
+
+		final JLabel lblHangiehirden = new JLabel("Hangi \u015Eehirden");
+		lblHangiehirden.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		lblHangiehirden.setBounds(26, 68, 136, 27);
+		contentPane.add(lblHangiehirden);
+
+		final JLabel lblNewLabel_1 = new JLabel("Hangi \u015Eehire");
+		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(26, 171, 104, 30);
+		contentPane.add(lblNewLabel_1);
+
+		final JComboBox cmbgshr = new JComboBox();
+		cmbgshr.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+		cmbgshr.setModel(new DefaultComboBoxModel(new String[] { "", "01 Adana", "02 Ad\u0131yaman", "03 Afyon",
+				"04 A\u011Fr\u0131", "05 Amasya", "06 Ankara", "07 Antalya", "08 Artvin", "09 Ayd\u0131n",
+				"10 Bal\u0131kesir", "11 Bilecik", "12 Bing\u00F6l", "13 Bitlis", "14 Bolu", "15 Burdur", "16 Bursa",
+				"17 \u00C7anakkale", "18 \u00C7ank\u0131r\u0131", "19 \u00C7orum", "20 Denizli", "21 Diyarbak\u0131r",
+				"22 Edirne", "23 Elaz\u0131\u011F", "24 Erzincan", "25 Erzurum", "26 Eski\u015Fehir", "27 Gaziantep",
+				"28 Giresun", "29 G\u00FCm\u00FC\u015Fhane", "30 Hakkari", "31 Hatay", "32 Isparta",
+				"33 \u0130\u00E7el", "34 \u0130stanbul", "35 \u0130zmir", "36 Kars", "37 Kastamonu", "38 Kayseri",
+				"39 K\u0131rklareli", "40 K\u0131r\u015Fehir", "41 Kocaeli", "42 Konya", "43 K\u00FCtahya",
+				"44 Malatya", "45 Manisa", "46 K.mara\u015F", "47 Mardin", "48 Mu\u011Fla", "49 Mu\u015F",
+				"50 Nev\u015Fehir", "51 Ni\u011Fde", "52 Ordu", "53 Rize", "54 Sakarya", "55 Samsun", "56 Siirt",
+				"57 Sinop", "58 Sivas", "59 Tekirda\u011F", "60 Tokat", "61 Trabzon", "62 Tunceli",
+				"63 \u015Eanl\u0131urfa", "64 U\u015Fak", "65 Van", "66 Yozgat", "67 Zonguldak", "68 Aksaray",
+				"69 Bayburt", "70 Karaman", "71 K\u0131r\u0131kkale", "72  Batman", "73 \u015E\u0131rnak",
+				"74 Bart\u0131n", "75 Ardahan", "76 I\u011Fd\u0131r", "77 Yalova", "78 Karab\u00FCk", "79 Kilis",
+				"80 Osmaniye", "81 D\u00FCzce" }));
+		cmbgshr.setBounds(26, 239, 104, 22);
+		contentPane.add(cmbgshr);
+
+		txtkisi = new JTextField();
+		txtkisi.setBounds(825, 108, 116, 22);
+		contentPane.add(txtkisi);
+		txtkisi.setColumns(10);
+
+		final JLabel lblNewLabel_2 = new JLabel("Ka\u00E7 yolcu binecek?");
+		lblNewLabel_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+		lblNewLabel_2.setBounds(826, 53, 143, 42);
+		contentPane.add(lblNewLabel_2);
+
+		final JButton btnNewButton = new JButton("Hesapla");
+		btnNewButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
+		btnNewButton.setBounds(826, 153, 97, 25);
+		contentPane.add(btnNewButton);
+
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent arg0) {
+
+				final String sonuc = (txtkisi.getText().trim());
+				final int sayi = Integer.parseInt(sonuc);
+				if ((sayi < 0) || (sayi > 50)) {
+					JOptionPane.showMessageDialog(null, "Yolcu Sayısını Kontrol Ediniz.", "UYARI",
+							JOptionPane.WARNING_MESSAGE);
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Hesaplanıyor");
+
+					final boolean b;
+					final String a[] = new String[1];
+					final Giris frm = new Giris();
+					Giris.main(a);
+
+				}
+			}
+		});
+	}
+}
+
+
+sehir
+
+
+package AnaSayfa;
+
+public class Sehir {
+	double enlem;
+	double boylam;
+	int plaka;
+	int rakim;
+
+	public Sehir() {
+	}
+
+	public Sehir(final double enlem, final double boylam, final int plaka, final int rakim) {
+
+		this.enlem = enlem;
+
+		this.boylam = boylam;
+
+		this.plaka = plaka;
+
+		this.rakim = rakim;
+
+	}
+
+}
+
+
+
+graph
+
+package AnaSayfa;
+
+import java.util.LinkedList;
+
+public class Graph {
+
+	public Sehir sehir;
+	public LinkedList<Integer> bagli = new LinkedList<>();
+
+	public Graph(final Sehir sehir) {
+		this.sehir = sehir;
+	}
+
+	public void ekle(final Graph graph) {
+		bagli.add(graph.sehir.plaka);
+
+	}
+
+	public void yazdir() {
+		for (int i = 0; i < 81; i++) {
+			System.out.println(" " + bagli.get(i));
+		}
+	}
+
+	public static void main(final String args[]) {
+
+	}
+}
+
+
